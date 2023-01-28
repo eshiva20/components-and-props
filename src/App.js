@@ -1,24 +1,17 @@
 import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
+import ChildA from './components/ChildA';
 
 function App() {
+  const[name,setName]=useState("")
+  const[age,setAge]=useState("")
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <input placeholder='Enter Name' onChange={(e)=>setName(e.target.value)} type="text"/>
+    <input placeholder='Enter Age' type="number" onChange={(e)=>setAge(e.target.value)}/>
+    <ChildA name={name} age={age}/>
+    </>
   );
 }
 
